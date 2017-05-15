@@ -1,11 +1,11 @@
 <template>
     <div class="cartcontrol">
-        <transition name="move">
+        <transition-group name="move">
             <div class="cart-decrease " 
-        v-show="food.count > 0" @click="decreaseCart">
+        v-show="food.count > 0" @click="decreaseCart" key="item">
             <span class="inner icon-remove_circle_outline"></span>
         </div>
-        </transition>
+        </transition-group>
         
         <div class="cart-count" v-show="food.count > 0">{{ food.count }}</div>
         <div class="cart-add icon-add_circle" @click="addCart"></div>
@@ -31,6 +31,8 @@
                 } else {
                     this.food.count += 1;
                 }
+                // 抛物线动画   修改来不及  dispatch废除了  用的是emit
+                // this.$dispatch("cart.add",event.target);
             },
             decreaseCart(event) {
                 if(!event._constructed){

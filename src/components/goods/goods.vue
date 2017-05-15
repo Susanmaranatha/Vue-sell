@@ -38,7 +38,7 @@
                 </li>
             </ul>
         </div>
-        <shopcart :select-foods="selectFoods" :delivery-price="seller.deliveryPrice" :min-price="seller.minPrice"></shopcart>
+        <shopcart ref:showcart :select-foods="selectFoods" :delivery-price="seller.deliveryPrice" :min-price="seller.minPrice"></shopcart>
     </div>
 </template>
 <script>
@@ -101,6 +101,10 @@
             })
         },
         methods: {
+            // 抛物线动画
+            // _drop(target){
+            //     this.$refs.shopcart.drop(target)
+            // },
             _initScroll(){
                //  https://cn.vuejs.org/v2/api/#选项-DOM
                // http://www.jianshu.com/p/728f03674444  资料   Vue 1.X 获取DOM是v-el
